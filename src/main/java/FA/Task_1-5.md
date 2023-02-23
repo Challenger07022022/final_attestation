@@ -29,19 +29,23 @@
 
 2. **Создать директорию, переместить файл туда.**
    
-   >root@gb:/home/challenger# mkdir dirTask2
+   >root@gb:/home/challenger# mkdir dirTask2\
    >root@gb:/home/challenger# mv Друзья_человека dirTask2/
 
 3. **Подключить дополнительный репозиторий MySQL. Установить любой пакет
    из этого репозитория.**
 
-   >wget https://dev.mysql.com/get/mysql-apt-config_0.8.24-1_all.deb
-   >dpkg -i mysql-apt-config_0.8.24-1_all.deb
-   >sudo apt update
+   >wget https://dev.mysql.com/get/mysql-apt-config_0.8.24-1_all.deb \
+   >dpkg -i mysql-apt-config_0.8.24-1_all.deb\
+   >sudo apt update\
    >apt install mysql-server -y
 
 4. **Установить и удалить deb-пакет с помощью dpkg.**
 
+   >root@gb:~# wget https://download.virtualbox.org/virtualbox/7.0.6/virtualbox-7.0_7.0.6-155176~Ubuntu~jammy_amd64.deb \
+   >root@gb:~# dpkg -i virtualbox-7.0_7.0.6-155176~Ubuntu~jammy_amd64.deb \
+   >root@gb:~# apt -f install \
+   >dpkg -r virtualbox-7.0
 
 5. **Выложить историю команд в терминале ubuntu**
 
