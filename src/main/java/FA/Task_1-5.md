@@ -28,11 +28,17 @@
    >mv Домашние_животные Друзья_человека
 
 2. **Создать директорию, переместить файл туда.**
-
+   
+   >root@gb:/home/challenger# mkdir dirTask2
+   >root@gb:/home/challenger# mv Друзья_человека dirTask2/
 
 3. **Подключить дополнительный репозиторий MySQL. Установить любой пакет
    из этого репозитория.**
 
+   >wget https://dev.mysql.com/get/mysql-apt-config_0.8.24-1_all.deb
+   >dpkg -i mysql-apt-config_0.8.24-1_all.deb
+   >sudo apt update
+   >apt install mysql-server -y
 
 4. **Установить и удалить deb-пакет с помощью dpkg.**
 
