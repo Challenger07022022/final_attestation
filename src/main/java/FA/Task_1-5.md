@@ -62,13 +62,13 @@
    464  mv Друзья_человека dirTask2/\
    465  ll\
    466  ll dirTask2/\
-   467  wget https://dev.mysql.com/get/mysql-apt-config_0.8.24-1_all.deb\
+   467  wget https://dev.mysql.com/get/mysql-apt-config_0.8.24-1_all.deb \
    468  ll\
    469  dpkg -i mysql-apt-config_0.8.24-1_all.deb\
    470  sudo apt update\
    471  apt install mysql-server -y\
    472  ll\
-   473  wget https://download.virtualbox.org/virtualbox/7.0.6/virtualbox-7.0_7.0.6-155176~Ubuntu~jammy_amd64.deb\
+   473  wget https://download.virtualbox.org/virtualbox/7.0.6/virtualbox-7.0_7.0.6-155176~Ubuntu~jammy_amd64.deb \
    474  dpkg -i virtualbox-7.0_7.0.6-155176~Ubuntu~jammy_amd64.deb\
    475  ll\
    476  dpkg -i virtualbox-7.0_7.0.6-155176~Ubuntu~jammy_amd64.deb\
