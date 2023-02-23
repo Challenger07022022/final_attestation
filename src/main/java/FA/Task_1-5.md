@@ -42,9 +42,9 @@
 
 4. **Установить и удалить deb-пакет с помощью dpkg.**
 
-   >root@gb:~# wget https://download.virtualbox.org/virtualbox/7.0.6/virtualbox-7.0_7.0.6-155176~Ubuntu~jammy_amd64.deb \
-   >root@gb:~# dpkg -i virtualbox-7.0_7.0.6-155176~Ubuntu~jammy_amd64.deb \
-   >root@gb:~# apt -f install \
+   >wget https://download.virtualbox.org/virtualbox/7.0.6/virtualbox-7.0_7.0.6-155176~Ubuntu~jammy_amd64.deb \
+   >dpkg -i virtualbox-7.0_7.0.6-155176~Ubuntu~jammy_amd64.deb \
+   >apt -f install \
    >dpkg -r virtualbox-7.0
 
 5. **Выложить историю команд в терминале ubuntu**
