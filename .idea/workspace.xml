@@ -5,19 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6fbb98b7-2f3c-44b8-895c-05018bd85cc3" name="Changes" comment="added Task 7-12">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FA/Task_13_15/Animals.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FA/Task_13_15/Camel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FA/Task_13_15/Cat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FA/Task_13_15/Counter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FA/Task_13_15/Dog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FA/Task_13_15/Donkey.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FA/Task_13_15/Hamster.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FA/Task_13_15/Horse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FA/Task_13_15/Pack.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FA/Task_13_15/Pets.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FA/Task_13_15/Program.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FA/Task_13_15/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FA/Task_13_15/Program.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677169569068</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="added Task 7-12">
+      <created>1677194902008</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1677194902008</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
