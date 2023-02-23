@@ -22,7 +22,7 @@
    Кошка\
    Хомяк\
    Лошадь\
-   Верюблюд\
+   Верблюд\
    Осел
 
    >mv Домашние_животные Друзья_человека
@@ -45,7 +45,35 @@
    >wget https://download.virtualbox.org/virtualbox/7.0.6/virtualbox-7.0_7.0.6-155176~Ubuntu~jammy_amd64.deb \
    >dpkg -i virtualbox-7.0_7.0.6-155176~Ubuntu~jammy_amd64.deb \
    >apt -f install \
-   >dpkg -r virtualbox-7.0
+   >dpkg -r virtualbox-7.0 \
+   >apt autoremove
 
 5. **Выложить историю команд в терминале ubuntu**
+
+   >  455  cat > Домашние_животные\
+   456  cat > Вьючные_животные\
+   457  ll\
+   458  cat Вьючные_животные >> Домашние_животные\
+   459  cat Домашние_животные\
+   460  mv Домашние_животные Друзья_человека\
+   461  ll\
+   462  cat Друзья_человека\
+   463  mkdir dirTask2\
+   464  mv Друзья_человека dirTask2/\
+   465  ll\
+   466  ll dirTask2/\
+   467  wget https://dev.mysql.com/get/mysql-apt-config_0.8.24-1_all.deb\
+   468  ll\
+   469  dpkg -i mysql-apt-config_0.8.24-1_all.deb\
+   470  sudo apt update\
+   471  apt install mysql-server -y\
+   472  ll\
+   473  wget https://download.virtualbox.org/virtualbox/7.0.6/virtualbox-7.0_7.0.6-155176~Ubuntu~jammy_amd64.deb\
+   474  dpkg -i virtualbox-7.0_7.0.6-155176~Ubuntu~jammy_amd64.deb\
+   475  ll\
+   476  dpkg -i virtualbox-7.0_7.0.6-155176~Ubuntu~jammy_amd64.deb\
+   477  apt -f install\
+   478  dpkg -r virtualbox-7.0\
+   479  apt autoremove\
+   480  history
 
