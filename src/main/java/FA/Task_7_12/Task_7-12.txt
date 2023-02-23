@@ -1,0 +1,187 @@
+7. В подключенном MySQL репозитории создать базу данных “Друзья человека”
+
+CREATE DATABASE HumanFriends;
+
+8. Создать таблицы с иерархией из диаграммы в БД
+
+USE HumanFriends;
+CREATE TABLE `humanfriends`.`animals` (
+  `idAnimals` INT NOT NULL,
+  `type` VARCHAR(45) NULL,
+  PRIMARY KEY (`idAnimals`));
+
+ALTER TABLE `humanfriends`.`animals`
+CHANGE COLUMN `idAnimals` `idAnimals` INT NOT NULL AUTO_INCREMENT ;
+
+INSERT INTO `humanfriends`.`animals` (`type`) VALUES ('pets');
+INSERT INTO `humanfriends`.`animals` (`type`) VALUES ('pack');
+
+CREATE TABLE `humanfriends`.`pets` (
+  `id_pets` INT NOT NULL AUTO_INCREMENT,
+  `type_pets` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id_pets`));
+
+CREATE TABLE `humanfriends`.`pack` (
+  `id_pack` INT NOT NULL AUTO_INCREMENT,
+  `type_pack` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id_pack`));
+
+INSERT INTO `humanfriends`.`pets` (`type_pets`) VALUES ('dog');
+INSERT INTO `humanfriends`.`pets` (`type_pets`) VALUES ('cat');
+INSERT INTO `humanfriends`.`pets` (`type_pets`) VALUES ('hamster');
+
+INSERT INTO `humanfriends`.`pack` (`type_pack`) VALUES ('horse');
+INSERT INTO `humanfriends`.`pack` (`type_pack`) VALUES ('camel');
+INSERT INTO `humanfriends`.`pack` (`type_pack`) VALUES ('donkey');
+
+9. Заполнить низкоуровневые таблицы именами(животных), командами которые они выполняют и датами рождения
+
+CREATE TABLE `humanfriends`.`dog` (
+  `id_dog` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `commands` VARCHAR(45) NOT NULL,
+  `date_of_birth` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id_dog`));
+
+CREATE TABLE `humanfriends`.`cat` (
+  `id_cat` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `commands` VARCHAR(45) NOT NULL,
+  `date_of_birth` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id_cat`));
+
+CREATE TABLE `humanfriends`.`hamster` (
+  `id_hamster` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `commands` VARCHAR(45) NOT NULL,
+  `date_of_birth` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id_hamster`));
+
+CREATE TABLE `humanfriends`.`horse` (
+  `id_horse` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `commands` VARCHAR(45) NOT NULL,
+  `date_of_birth` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id_horse`));
+
+CREATE TABLE `humanfriends`.`camel` (
+  `id_camel` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `commands` VARCHAR(45) NOT NULL,
+  `date_of_birth` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id_camel`));
+
+CREATE TABLE `humanfriends`.`donkey` (
+  `id_donkey` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `commands` VARCHAR(45) NOT NULL,
+  `date_of_birth` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id_donkey`));
+
+ALTER TABLE `humanfriends`.`camel`
+CHANGE COLUMN `date_of_birth` `date_of_birth` DATE NOT NULL ;
+
+ALTER TABLE `humanfriends`.`cat`
+CHANGE COLUMN `date_of_birth` `date_of_birth` DATE NOT NULL ;
+
+ALTER TABLE `humanfriends`.`dog`
+CHANGE COLUMN `date_of_birth` `date_of_birth` DATE NOT NULL ;
+
+ALTER TABLE `humanfriends`.`donkey`
+CHANGE COLUMN `date_of_birth` `date_of_birth` DATE NOT NULL ;
+
+ALTER TABLE `humanfriends`.`hamster`
+CHANGE COLUMN `date_of_birth` `date_of_birth` DATE NOT NULL ;
+
+ALTER TABLE `humanfriends`.`horse`
+CHANGE COLUMN `date_of_birth` `date_of_birth` DATE NOT NULL ;
+
+INSERT INTO `humanfriends`.`dog` (`name`, `commands`, `date_of_birth`) VALUES ('Шарик', 'лежать, фас', '2022-01-01');
+INSERT INTO `humanfriends`.`dog` (`name`, `commands`, `date_of_birth`) VALUES ('Тузик', 'сидеть', '2018-05-05');
+
+INSERT INTO `humanfriends`.`cat` (`name`, `commands`, `date_of_birth`) VALUES ('Дымка', 'есть', '2023-01-01');
+
+INSERT INTO `humanfriends`.`hamster` (`name`, `commands`, `date_of_birth`) VALUES ('Гарик', 'нельзя', '2019-03-22');
+
+INSERT INTO `humanfriends`.`horse` (`name`, `commands`, `date_of_birth`) VALUES ('Цезарь', 'Стоять', '2023-01-03');
+
+INSERT INTO `humanfriends`.`camel` (`name`, `commands`, `date_of_birth`) VALUES ('Вася', 'вставай', '2015-07-07');
+
+INSERT INTO `humanfriends`.`donkey` (`name`, `commands`, `date_of_birth`) VALUES ('Моисей', 'пошел, стоять', '2016-04-04');
+
+10. Удалив из таблицы верблюдов, т.к. верблюдов решили перевезти в другой питомник на зимовку.
+Объединить таблицы лошади, и ослы в одну таблицу.
+
+TRUNCATE camel;
+
+CREATE TABLE `horse&donkey` AS
+SELECT `name`, `commands`, `date_of_birth` FROM horse
+UNION
+SELECT `name`, `commands`, `date_of_birth` FROM donkey;
+
+11. Создать новую таблицу “молодые животные” в которую попадут все животные старше 1 года,
+но младше 3 лет и в отдельном столбце с точностью до месяца подсчитать возраст животных в новой таблице
+
+CREATE TABLE young_animals AS
+SELECT `name`, `commands`, `date_of_birth`, CONCAT(TIMESTAMPDIFF(YEAR, `date_of_birth`, CURDATE()), ' year ', TIMESTAMPDIFF(MONTH, `date_of_birth`, CURDATE()) % 12, ' month ') AS age
+FROM dog
+WHERE `date_of_birth` BETWEEN DATE_SUB(CURDATE(), INTERVAL 3 YEAR) AND DATE_SUB(CURDATE(), INTERVAL 1 YEAR)
+UNION
+SELECT `name`, `commands`, `date_of_birth`, CONCAT(TIMESTAMPDIFF(YEAR, `date_of_birth`, CURDATE()), ' year ', TIMESTAMPDIFF(MONTH, `date_of_birth`, CURDATE()) % 12, ' month ') AS age
+FROM cat
+WHERE `date_of_birth` BETWEEN DATE_SUB(CURDATE(), INTERVAL 3 YEAR) AND DATE_SUB(CURDATE(), INTERVAL 1 YEAR)
+UNION
+SELECT `name`, `commands`, `date_of_birth`, CONCAT(TIMESTAMPDIFF(YEAR, `date_of_birth`, CURDATE()), ' year ', TIMESTAMPDIFF(MONTH, `date_of_birth`, CURDATE()) % 12, ' month ') AS age
+FROM hamster
+WHERE `date_of_birth` BETWEEN DATE_SUB(CURDATE(), INTERVAL 3 YEAR) AND DATE_SUB(CURDATE(), INTERVAL 1 YEAR)
+UNION
+SELECT `name`, `commands`, `date_of_birth`, CONCAT(TIMESTAMPDIFF(YEAR, `date_of_birth`, CURDATE()), ' year ', TIMESTAMPDIFF(MONTH, `date_of_birth`, CURDATE()) % 12, ' month ') AS age
+FROM horse
+WHERE `date_of_birth` BETWEEN DATE_SUB(CURDATE(), INTERVAL 3 YEAR) AND DATE_SUB(CURDATE(), INTERVAL 1 YEAR)
+UNION
+SELECT `name`, `commands`, `date_of_birth`, CONCAT(TIMESTAMPDIFF(YEAR, `date_of_birth`, CURDATE()), ' year ', TIMESTAMPDIFF(MONTH, `date_of_birth`, CURDATE()) % 12, ' month ') AS age
+FROM camel
+WHERE `date_of_birth` BETWEEN DATE_SUB(CURDATE(), INTERVAL 3 YEAR) AND DATE_SUB(CURDATE(), INTERVAL 1 YEAR)
+UNION
+SELECT `name`, `commands`, `date_of_birth`, CONCAT(TIMESTAMPDIFF(YEAR, `date_of_birth`, CURDATE()), ' year ', TIMESTAMPDIFF(MONTH, `date_of_birth`, CURDATE()) % 12, ' month ') AS age
+FROM donkey
+WHERE `date_of_birth` BETWEEN DATE_SUB(CURDATE(), INTERVAL 3 YEAR) AND DATE_SUB(CURDATE(), INTERVAL 1 YEAR);
+
+12. Объединить все таблицы в одну, при этом сохраняя поля, указывающие на прошлую принадлежность к старым таблицам.
+
+CREATE TABLE all_tables AS
+SELECT  name,
+        commands,
+        date_of_birth,
+        'dog' as old_table
+FROM dog
+UNION
+SELECT  name,
+        commands,
+        date_of_birth,
+        'cat' as old_table
+FROM cat
+UNION
+SELECT  name,
+        commands,
+        date_of_birth,
+        'hamster' as old_table
+FROM hamster
+UNION
+SELECT  name,
+        commands,
+        date_of_birth,
+        'horse' as old_table
+FROM horse
+UNION
+SELECT  name,
+        commands,
+        date_of_birth,
+        'camel' as old_table
+FROM camel
+UNION
+SELECT  name,
+        commands,
+        date_of_birth,
+        'donkey' as old_table
+FROM donkey;
