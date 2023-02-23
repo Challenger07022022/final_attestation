@@ -46,7 +46,7 @@
    dpkg -i virtualbox-7.0_7.0.6-155176~Ubuntu~jammy_amd64.deb \
    apt -f install \
    dpkg -r virtualbox-7.0 \
-   apt autoremove
+   apt autoremove \
 
 5. **Выложить историю команд в терминале ubuntu**
 
