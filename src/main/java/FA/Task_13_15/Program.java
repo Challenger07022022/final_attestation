@@ -19,7 +19,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-
 public class Program {
 
     static List<Dog> dog = new ArrayList<>();
